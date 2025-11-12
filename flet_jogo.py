@@ -11,7 +11,6 @@ def main(page: ft.Page):
     # 3. Adicionar o controle à página
     page.add(welcome_text)
     
-    # IMPORTANTE: Você precisa chamar o método de update para que as alterações apareçam
     page.update() 
     
 if __name__ == "__main__":
