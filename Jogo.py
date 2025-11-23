@@ -3,8 +3,8 @@ from typing import Tuple, Optional
 from tabuleiro import Tabuleiro
 from jogador import Jogador
 
-class Jogo():
-    tab: 'Tabuleiro'
+class Jogo(): #Define a classe "Jogo" que comanda o estado principal do jogo
+    tab: 'Tabuleiro' #Atributo para Tabuleiro e jogadores, inicialmente como None
     jogador1: Optional['Jogador'] = None
     jogador2: Optional['Jogador'] = None
     quemJoga: Optional['Jogador'] = None
@@ -12,7 +12,8 @@ class Jogo():
     def __init__(self) -> None:
         self.tab = Tabuleiro()
     
-    def menu_jogo(self) -> None:
+    def menu_jogo(self) -> None:  #Define o método para o menu do jogo e definição dos jogadores e modo de jogo
+        
         print("Bem-vindo ao Connect Four (Quatro em Linha)!")
         
         while True:
@@ -32,7 +33,7 @@ class Jogo():
             except ValueError as e:
                 print(f'Erro {e}. Tente Novamente')
     
-    def obter_jogada(self) -> Tuple[int,int]:
+    def obter_jogada(self) -> Tuple[int,int]: #Recebe a jogada a ser realizada pelo jogador
         jogador = self.quemJoga
         if jogador is None:
             raise ValueError("Erro de lógica: jogador atual não pode ser None no turno.")
@@ -52,7 +53,7 @@ class Jogo():
                     return linha_livre,coluna
                 except ValueError:
                     print('Entrada inválida, por favor digite um número de 0 a 6')
-        elif jogador.tipo == 'computador':
+        elif jogador.tipo == 'computador': #utiliza a biblioteca random para realizar jogadas aleatórias para o computador
             while True:
                 coluna = random.randrange(0, self.tab.NUM_COLUNAS)
                 linha_livre = self.tab.obter_linha_livre(coluna)
@@ -62,8 +63,8 @@ class Jogo():
             return linha_livre, coluna
         return -1, -1
     
-    def iniciar_partida(self) -> None:
-        self.quemJoga = self.jogador1
+    def iniciar_partida(self) -> None: #Método que inicia o loop principal do jogo
+        self.quemJoga = self.jogador1 #Variável temporária para segurança e acesso rápido na memória
         while True:
             jogador_atual = self.quemJoga
             if jogador_atual is None:
@@ -81,16 +82,17 @@ class Jogo():
                 print(f'O jogo empatou, parabéns ao dois... Ou não!')
                 break
 
-            self.quemJoga = self.jogador2 if jogador_atual == self.jogador1 else self.jogador1
+            self.quemJoga = self.jogador2 if jogador_atual == self.jogador1 else self.jogador1 #Troca a vez do jogador
             
 
                     
                     
 
-if __name__ == "__main__":
+if __name__ == "__main__": #Bloco padrão de Python que garante que o código dentro dele só será executado quando o arquivo for rodado diretamente
     try:
         jogo = Jogo() 
         jogo.menu_jogo()
         jogo.iniciar_partida()
     except KeyboardInterrupt:
+
         print("\n\nJogo encerrado. Até mais!")
