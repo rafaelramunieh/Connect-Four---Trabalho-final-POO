@@ -5,7 +5,3 @@ class Jogador(): #Define a classe Jogador
         self.nome = nome
         self.peca = peca
         self.tipo = tipo
-    
-    def obter_jogada(self, tabuleiro:List[List[str]]):
-
-        pass
