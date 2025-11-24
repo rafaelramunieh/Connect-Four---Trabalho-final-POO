@@ -1,10 +1,11 @@
 from typing import List
 
-class Jogador():
-    def __init__(self, nome:str, peca:str, tipo:str='humano'):
+class Jogador(): #Define a classe Jogador
+    def __init__(self, nome:str, peca:str, tipo:str='humano'): #Método construtor do objeto jogador
         self.nome = nome
         self.peca = peca
         self.tipo = tipo
     
     def obter_jogada(self, tabuleiro:List[List[str]]):
+
         pass
