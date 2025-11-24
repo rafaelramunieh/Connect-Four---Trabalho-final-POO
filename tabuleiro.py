@@ -103,8 +103,7 @@ class Tabuleiro(): #Declara a classe do tabuleiro
         
         contador = 0
 
-        while temp_lin < self.NUM_LINHAS - 1 and temp_col > 0:
-        
+        while temp_lin <= self.NUM_LINHAS - 1 and temp_col >= 0:
             if self.tabuleiro[temp_lin][temp_col] == peca:
                 contador +=1 
                 if contador >=4:

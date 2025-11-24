@@ -96,3 +96,4 @@ if __name__ == "__main__": #Bloco padrão de Python que garante que o código de
     except KeyboardInterrupt:
 
         print("\n\nJogo encerrado. Até mais!")
+1

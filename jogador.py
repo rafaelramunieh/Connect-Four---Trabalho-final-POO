@@ -5,3 +5,10 @@ class Jogador(): #Define a classe Jogador
         self.nome = nome
         self.peca = peca
         self.tipo = tipo
+
+    def __str__(self):
+        """
+        Retorna a representação de string legível do objeto Jogador.
+        Chamado automaticamente por print() e f-strings.
+        """
+        return f"{self.nome} ({self.peca})"
