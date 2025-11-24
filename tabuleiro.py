@@ -4,10 +4,10 @@ class Tabuleiro(): #Declara a classe do tabuleiro
         self.NUM_LINHAS = 6 #Determina o número de linhas do tabuleiro
         self.NUM_COLUNAS = 7 #Determina o número de colunas do tabuleiro
         self.PECA_VAZIA = '.' #Determina o caractere que representa os espaços vazios do tabuleiro
-        self.tabuleiro = [ #Inicia a matriz do tabuleiro 
+        self.tabuleiro = [
             [self.PECA_VAZIA for _ in range(self.NUM_COLUNAS)] 
             for _ in range(self.NUM_LINHAS)
-        ]
+        ] #Inicia a matriz do tabuleiro
     def obter_linha_livre(self, coluna: int) -> int: #Método que recebe o índice da coluna e retorna o índice da linha vazia mais baixa
         for linha in range(self.NUM_LINHAS - 1, -1, -1):
             
@@ -124,3 +124,4 @@ class Tabuleiro(): #Declara a classe do tabuleiro
 
 
         
+
